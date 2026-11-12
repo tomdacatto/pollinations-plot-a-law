@@ -53,7 +53,7 @@ Signed in with my own Pollen on the live code (the app's own prompts and checks,
 - The six topics are textbook laws a small model knows well. Obscure topics were not run.
 - One run per model and topic in the final table; rates move between runs (see the earlier runs above).
 - Phones and browsers other than desktop Chrome. The sign-in redirect on the live address: the key was loaded into the page from a device-flow login for the run, and the live-page screenshots use that key.
-- No App Key (`pk_`) exists for this app yet, so the consent screen does not name it. `APP_KEY` in `config.js` is empty; the sign-in sends it as `client_id` as soon as it is set.
+- The sign-in sends the app's publishable App Key (`APP_KEY` in `config.js`, earnings off) as `client_id`; a real consent screen naming the app was not checked.
 - The default models were chosen because they are free for every visitor (`paid_only` is false on `gen.pollinations.ai/v1/models`, checked 2026-11-12). Paid models stay in the list marked "paid"; one picked on free Pollen shows the 402 message for that request only.
 
 ## How it pays
