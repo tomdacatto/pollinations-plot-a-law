@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plot a Law: a science topic you can move with sliders, and check</title>
+    <meta name="description" content="Pick a law of nature. A Pollinations model describes it as equations, the page plots them with sliders, and checks the model's own worked examples against them. Paid with your own Pollen.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top">
+        <a class="brand" href="./">Plot a Law</a>
+        <div class="session">
+            <span id="whoami" hidden>Signed in with your Pollen</span>
+            <button id="sign-in" class="button primary" type="button">Sign in with Pollen</button>
+            <button id="sign-out" class="button" type="button" hidden>Sign out</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h1>A science topic you can move, and check</h1>
+            <p>
+                Most "explain this topic" tools let a model write a page full of code and run it.
+                Here the model writes no code. It describes a law as data: parameters, one or two equations, and three worked examples it calculated by hand.
+                This page draws the equations with sliders using a small expression reader of its own, then <em>runs the model's worked examples against its equations</em>.
+                A ✓ means the formula and the model's own arithmetic agree; a ✗ is shown, not hidden, and you can ask the model to repair it once.
+                It cannot tell you the law is true: it catches a model contradicting itself.
+            </p>
+        </section>
+
+        <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+        <section class="card">
+            <h2>Pick a law</h2>
+            <label class="field">Topic
+                <textarea id="topic" rows="2"></textarea>
+            </label>
+            <div class="row presets" id="presets"></div>
+            <div class="row">
+                <label class="inline">Model
+                    <select id="model"></select>
+                </label>
+                <button id="run" class="button primary" type="button">Plot it</button>
+                <span id="progress" class="fine"></span>
+            </div>
+            <p id="estimate" class="fine"></p>
+            <details id="bad" hidden>
+                <summary>The reply that could not be used</summary>
+                <pre id="bad-text"></pre>
+            </details>
+        </section>
+
+        <section id="result" hidden>
+            <div class="card">
+                <h2 id="law-title">The law</h2>
+                <p id="law-text"></p>
+                <div class="plotbox">
+                    <div id="plot"></div>
+                    <div class="side">
+                        <div id="sliders"></div>
+                        <p id="readout" class="readout"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>The equations</h2>
+                <div id="equations"></div>
+            </div>
+
+            <div class="card">
+                <h2>The model's worked examples, run against its equations</h2>
+                <p id="verdict" class="verdict"></p>
+                <div class="scroll"><table id="checks"></table></div>
+                <p class="fine">Click a row to move the sliders there and mark the point on the curve: the large ring is what the model expected, the small dot is what the equations give.</p>
+                <div class="row">
+                    <button id="fix" class="button" type="button" hidden>Ask the model to fix it</button>
+                </div>
+                <div id="versions"></div>
+            </div>
+
+            <div class="card">
+                <h2>Where the model says it knows this from</h2>
+                <ul id="sources"></ul>
+                <p class="fine">Named by the model. The page does not look them up, and a model can name a book that does not say this.</p>
+                <details>
+                    <summary>The model's JSON</summary>
+                    <pre id="raw"></pre>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer class="foot">
+        <p>
+            Every model call runs on <a href="https://pollinations.ai/?ref=badge">Pollinations</a>. This page has no server and keeps no key: you sign in with
+            <a href="https://github.com/pollinations/pollinations/blob/main/BRING_YOUR_OWN_POLLEN.md">your own Pollen</a> and each law is paid from your balance.
+            Made with pollinations.ai.
+        </p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

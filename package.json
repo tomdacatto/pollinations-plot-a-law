@@ -1,0 +1,8 @@
+{
+    "name": "pollinations-plot-a-law",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "test": "node --test"
+    }
+}
